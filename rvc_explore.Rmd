@@ -22,7 +22,7 @@ rv1
 rv2<-ggplot(blbar, aes(BC_VALUE.x,lbar))+stat_bin2d(bins=10)+facet_wrap(~GROUP,scales="free")
 rv2
 
-#test
+
 
 
 
@@ -34,6 +34,10 @@ Other Plots
 ```{r plots, echo=FALSE}
 
 pairs(~lbar+eucf_strength.x+BC_VALUE.x+abundance+biomass,data=blbar)
+
+renderPlot({pairs(~lbar+eucf_strength.x+BC_VALUE.x+abundance+biomass,data=blbar)})
+
+renderPlot({ggplot(blbar, aes(eucf_strength.x,lbar))+geom_point()+geom_smooth()+facet_wrap(~GROUP,scales="free")})
 
 
 ```
