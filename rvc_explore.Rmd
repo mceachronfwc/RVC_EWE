@@ -14,10 +14,9 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r RVC data explorationg: Lbar}
-lbar<-read.csv("C:/Users/luke.mceachron/Dropbox/rvc_ewePSULbar.csv")
+blbar<-read.csv("C:/Users/luke.mceachron/Dropbox/rvc_ewe/PSULbar.csv")
   
-  
-pairs(~lbar+eucf_strength.x+BC_VALUE.x+abundance+biomass,data=blbar)
+names(blbar)  
 
 
 library(ggplot2)
@@ -25,13 +24,13 @@ library(shiny)
 library(leaflet)
 
 
-rv<-ggplot(blbar, aes(eucf_strength.x,lbar))+geom_point()+geom_smooth()+facet_wrap(~GROUP,scales="free")
-rv
+rv1<-ggplot(blbar, aes(eucf_strength.x,lbar))+geom_point()+geom_smooth()+facet_wrap(~GROUP,scales="free")
+rv1
 
 
 
-rv<-ggplot(blbar, aes(eucf_strength.y,size))+stat_bin2d(bins=10)+facet_wrap(~GROUP,scales="free")
-rv
+rv2<-ggplot(blbar, aes(BC_VALUE.x,lbar))+stat_bin2d(bins=10)+facet_wrap(~GROUP,scales="free")
+rv2
 
 
 
@@ -39,12 +38,13 @@ rv
 
 ```
 
-## Including Plots
+Plots
 
-You can also embed plots, for example:
+```{r plots, echo=FALSE}
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+pairs(~lbar+eucf_strength.x+BC_VALUE.x+abundance+biomass,data=blbar)
+
+
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
