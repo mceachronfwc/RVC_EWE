@@ -32,6 +32,7 @@ rv1
 rv2<-ggplot(blbar, aes(BC_VALUE.x,lbar))+stat_bin2d(bins=10)+facet_wrap(~GROUP,scales="free")
 rv2
 
+#test
 
 
 
